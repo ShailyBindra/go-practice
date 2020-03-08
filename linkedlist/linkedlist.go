@@ -31,6 +31,21 @@ func (ll *LinkedList) AddElementAtFront(data int) {
 	ll.head = &firstNode
 }
 
+func (ll *LinkedList) AddElementAtEnd(data int) {
+	node := Node{data: data, next: nil}
+
+	if ll.head == nil {
+		ll.head = &node
+		return
+	}
+
+	tempHead := ll.head
+	for ; tempHead.next != nil; {
+		tempHead = tempHead.next
+	}
+	tempHead.next =&node
+}
+
 func (ll *LinkedList) Print() {
 
 	if ll.head == nil {
@@ -38,7 +53,7 @@ func (ll *LinkedList) Print() {
 	}
 
 	tempHead := ll.head
-	for ; tempHead != nil ; {
+	for ; tempHead != nil; {
 		log.Println(tempHead.data)
 		tempHead = tempHead.next
 	}

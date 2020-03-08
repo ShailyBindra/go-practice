@@ -19,15 +19,14 @@ func testLinkedList()  {
 
 	ll := linkedlist.NewLinkedList()
 
-	i := 1
-	for i <= 10 {
+	i := 10
+	for i > 0 {
 		ll.AddElementAtFront(i)
-		i++
+		i--
 	}
 
-	ll.Print()
-	for i <= 20 {
-		ll.AddElementAtFront(i)
+	for i=11 ;i <= 20; {
+		ll.AddElementAtEnd(i)
 		i++
 	}
 	log.Println("n\n")
