@@ -1,11 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"github.com/ShailyBindra/go-practice/linkedlist"
 	"log"
 )
 
-func main()  {
+func main() {
 	log.Println("Starting")
 
 	//test linked list
@@ -15,7 +16,7 @@ func main()  {
 
 }
 
-func testLinkedList()  {
+func testLinkedList() {
 
 	ll := linkedlist.NewLinkedList()
 
@@ -24,19 +25,27 @@ func testLinkedList()  {
 		ll.AddElementAtFront(i)
 		i--
 	}
+	ll.Print()
 
-	for i=11 ;i <= 20; {
+	for i = 11; i <= 20; {
 		ll.AddElementAtEnd(i)
 		i++
 	}
-	log.Println("n\n")
-
 	ll.Print()
 
-	//i = 11
-	//for i <= 20 {
-	//	ll.AddElementAtFront(i)
-	//	i++
-	//}
-	//ll.Print()
+	log.Println("m\n\nn")
+
+	ll.DeleteAtGivenIndex(2)
+	ll.Print()
+
+	fmt.Print(ll.Length())
+
+	log.Println("\n\n")
+
+	ll.Reverse()
+	ll.Print()
+
+	ll.AddElementAtGivenIndex(2000, 20)
+	ll.Print()
+
 }
