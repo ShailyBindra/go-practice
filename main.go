@@ -48,4 +48,11 @@ func testLinkedList() {
 	ll.AddElementAtGivenIndex(2000, 20)
 	ll.Print()
 
-}
+	ll.PrintRecursively()
+	ll.HasLoop()
+	ll.SearchElement(6)
+	ll.SearchElement(60)
+	ll.SearchElement(2000)
+
+
+	}

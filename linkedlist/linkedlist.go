@@ -15,9 +15,6 @@ func NewLinkedList() *LinkedList {
 	return &LinkedList{}
 }
 
-//create linked list, add element at the front
-//print linked list
-
 func (ll *LinkedList) AddElementAtFront(data int) {
 	var firstNode Node
 	firstNode.data = data
@@ -135,19 +132,89 @@ func (ll *LinkedList) AddElementAtGivenIndex(data int, index int) {
 	tempHead.next = &newNode
 }
 
+func (ll *LinkedList) PrintRecursively() {
+	if ll == nil {
+		return
+	}
+	tempHead := ll
+	printRecursively(tempHead.head)
+}
+
+func printRecursively(head *Node) {
+	if head == nil {
+		return
+	}
+	log.Println(head.data)
+	printRecursively(head.next)
+}
+
+/**
+ll having loop, eg:
+
+0->1->2->3->4->5
+      |		   |
+      8<-7<-6<--
+
+*/
+
+func (ll *LinkedList) HasLoop() bool {
+	if ll == nil || ll.head.next == nil {
+		return false
+	}
+
+	fastPointer := ll.head
+	slowPointer := ll.head
+
+	for ; fastPointer != nil && slowPointer != nil; {
+		if fastPointer == slowPointer && fastPointer != ll.head && slowPointer != ll.head {
+			return true
+		}
+		fastPointer = fastPointer.next.next
+		slowPointer = slowPointer.next
+	}
+	return false
+}
+
+func (ll *LinkedList) SearchElement(value int) *Node {
+	tempHead := ll.head
+	for ; tempHead != nil; {
+		if tempHead.data == value {
+			return tempHead
+		}
+		tempHead = tempHead.next
+	}
+	return nil
+}
+
 //done
-//add at front
-//traverse
-// add at back
-// delete an element given index
-// delete linked list
-// length
-// reverse
-// add element at given index
-
-
-//todo
-// print recursive
+// Create linked list, add element at the front
+// Print linked list
+// Add at front
+// Traverse
+// Add at back
+// Delete an element given index
+// Delete linked list
+// Length
+// Reverse
+// Add element at given index
+// Print recursive
+// Detect loop
 // search element
-// detect loop
+
+//TODO:
 // merge two sorted linked list
+// Nth node from the end of a Linked List
+// Print the middle of a given linked list
+// Write a function that counts the number of times a given int occurs in a Linked List
+// Detect loop in a linked list
+// Find length of loop in linked list
+// Function to check if a singly linked list is palindrome
+// Remove duplicates from a sorted linked list
+// Remove duplicates from an unsorted linked list
+// Swap nodes in a linked list without swapping data
+// Pairwise swap elements of a given linked list
+// Move last element to front of a given Linked List
+// Intersection of two Sorted Linked Lists
+// Intersection point of two Linked Lists.
+// QuickSort on Singly Linked List
+// Segregate even and odd nodes in a Linked List
