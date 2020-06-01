@@ -7,6 +7,18 @@ type Node struct {
 	next *Node
 }
 
+/**
+Definition: A linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list. A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers
+
+Advantages over arrays
+1) Dynamic size
+2) Ease of insertion/deletion
+
+Drawbacks:
+1) Random access is not allowed.
+2) Extra memory space for a pointer is required with each element of the list.
+3) Not cache friendly.
+ */
 type LinkedList struct {
 	head *Node
 }
@@ -90,7 +102,8 @@ func (ll *LinkedList) Length() int {
 }
 
 func (ll *LinkedList) Reverse() {
-	if ll.head == nil || ll.head.next == nil {
+	if ll.head == nil || ll.
+		head.next == nil {
 		return
 	}
 
